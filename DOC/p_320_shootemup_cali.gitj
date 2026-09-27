@@ -106,6 +106,16 @@
       "description": "",
       "duration": 15,
       "status": "DONE"
+    },
+    {
+      "id": "96904d6e-a101-44e4-af10-e82e3261fec8",
+      "type": "commitless",
+      "author": "CJCali2005",
+      "date": "2026-09-27T19:50:00.000Z",
+      "name": "DOC(User stories): Finalisation des user stories",
+      "description": "Basé sur les remarques du release",
+      "duration": 50,
+      "status": "DONE"
     }
   ]
 }
