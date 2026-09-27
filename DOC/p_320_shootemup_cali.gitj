@@ -36,5 +36,76 @@
       "source": "author"
     }
   ],
-  "exceptions": []
+  "exceptions": [
+    {
+      "id": "cebeda6f-1173-4412-bcb7-1026ade651a6",
+      "type": "commitless",
+      "author": "CJCali2005",
+      "date": "2026-08-28T12:44:00.000Z",
+      "name": "Explications Projet XCL",
+      "description": "",
+      "duration": 90,
+      "status": "DONE"
+    },
+    {
+      "id": "c8fe9731-dcfa-4b94-8dce-d2aaf12a27b6",
+      "type": "commitless",
+      "author": "CJCali2005",
+      "date": "2026-08-28T14:00:00.000Z",
+      "name": "Création d'image et maquette",
+      "description": "",
+      "duration": 75,
+      "status": "DONE"
+    },
+    {
+      "id": "35dc548a-5b84-40d3-8c43-109f4328b4d1",
+      "type": "commitless",
+      "author": "CJCali2005",
+      "date": "2026-09-04T13:00:00.000Z",
+      "name": "DOC(userstory): Création de user stories avec maquette",
+      "description": "",
+      "duration": 90,
+      "status": "WIP"
+    },
+    {
+      "id": "e3e1c5e2-c575-4e7e-9a17-1cc095a2023e",
+      "type": "commitless",
+      "author": "CJCali2005",
+      "date": "2026-09-04T14:42:00.000Z",
+      "name": "DOC(Rapport & JDT): création des deux fichiers selon critères donné par Monsieur Carrel",
+      "description": "",
+      "duration": 90,
+      "status": "WIP"
+    },
+    {
+      "id": "f8a2d0d5-8662-466c-b106-2ea5244d4b83",
+      "type": "commitless",
+      "author": "CJCali2005",
+      "date": "2026-09-04T18:47:00.000Z",
+      "name": "DOC(Rapport & JDT): création des deux fichiers selon critères donné par Monsieur Carrel",
+      "description": "",
+      "duration": 30,
+      "status": "DONE"
+    },
+    {
+      "id": "e0b53325-6f0e-4b62-8382-ec8ae76d7ed0",
+      "type": "commitless",
+      "author": "CJCali2005",
+      "date": "2026-09-25T13:25:00.000Z",
+      "name": "DOC( User stories ): Création des dernières maquettes",
+      "description": "",
+      "duration": 115,
+      "status": "DONE"
+    },
+    {
+      "id": "2690ee65-e3cd-4c0b-b84b-2312a879601c",
+      "type": "commitless",
+      "author": "CJCali2005",
+      "date": "2026-09-25T14:30:00.000Z",
+      "name": "Démonstration XCL AirSpace avec table blanche.",
+      "description": "",
+      "duration": 15,
+      "status": "DONE"
+    }
+  ]
 }
