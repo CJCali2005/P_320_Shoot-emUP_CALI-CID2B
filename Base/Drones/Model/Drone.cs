@@ -11,9 +11,10 @@ namespace Drones
         public int x;                                 // Position en X depuis la gauche de l'espace aérien
         public int y;                                 // Position en Y depuis le haut de l'espace aérien
         public int speed_x;                           // Déplacement horizontal
-        public int speed_y;
-        // Déplacement vertical
+        
         private Random _alea = new Random();
+        
+
 
         // Constructeur
         public Drone(int x, int y, string name)
@@ -30,16 +31,17 @@ namespace Drones
         // que 'interval' millisecondes se sont écoulées
         public void Update(int interval)
         {
-            x += speed_x;   
-            y += speed_y;
+            
+            // on ajoute la valeur de speed x à notre position actuelle
+            x += speed_x;  
             charge--;
         }
 
         // Choisit une nouvelle vitesse aléatoirement
         public void ChangeDirection()
         {
+
             speed_x = _alea.Next(-3, 4);
-            speed_y = _alea.Next(-3, 4);
         }
 
         /// //////////////////////////////////////////////////////////////////////////////
@@ -55,7 +57,8 @@ namespace Drones
         // De manière graphique
         public void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawImage(Resources.drone, x, y, 50, 50);
+
+            drawingSpace.Graphics.DrawImage(Resources.guitariste, x, y , 60, 105);
             drawingSpace.Graphics.DrawString($"{this}", TextHelpers.drawFont, TextHelpers.writingBrush, x + 5, y - 25);
         }
 

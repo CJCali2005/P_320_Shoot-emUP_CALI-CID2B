@@ -1,4 +1,5 @@
 using P_320_POO_CALI.Properties;
+using System.Net;
 namespace Drones
 {
     // La classe AirSpace représente le territoire au dessus duquel les drones peuvent voler
@@ -10,7 +11,11 @@ namespace Drones
         public static readonly int WIDTH = 1200;        // Dimensions of the airspace
         public static readonly int HEIGHT = 600;
 
+       
+
+
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
+        // représente le lien avec la class dronne
         private Drone _player;
 
         BufferedGraphicsContext currentContext;
@@ -28,6 +33,11 @@ namespace Drones
             // dimensions the same size as the drawing surface of the form.
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this._player = player;
+
+            // pour form accepte les touche du clavier
+            this.KeyPreview = true;
+
+            this.KeyDown += AirSpace_KeyDown;
         }
 
         // Affichage de la situation actuelle
@@ -61,7 +71,19 @@ namespace Drones
                 case Keys.Space:
                     _player.ChangeDirection();
                     break;
-            }
+
+                    // dans le cas ou je clique fleche droite
+                case Keys.Right:
+                    _player.speed_x = 10;
+                    break;
+
+                    // dans le cas ou je clique fleche gauche
+                case Keys.Left:
+                    _player.speed_x = -10;
+                    break;
+                    
+
+        }
         }
     }
 }

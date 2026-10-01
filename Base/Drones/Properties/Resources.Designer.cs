@@ -63,9 +63,9 @@ namespace P_320_POO_CALI.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap drone {
+        internal static System.Drawing.Bitmap guitariste {
             get {
-                object obj = ResourceManager.GetObject("drone", resourceCulture);
+                object obj = ResourceManager.GetObject("guitariste", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

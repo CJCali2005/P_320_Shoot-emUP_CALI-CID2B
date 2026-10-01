@@ -13,7 +13,7 @@ namespace Drones
             ApplicationConfiguration.Initialize();
 
             // Démarrage
-            Application.Run(new AirSpace(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe")));
+            Application.Run(new AirSpace(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT - (AirSpace.HEIGHT / 4), "Joe")));
         }
     }
 }
