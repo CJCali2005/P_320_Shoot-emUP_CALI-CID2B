@@ -1,3 +1,5 @@
+using P_320_POO_CALI.Model;
+
 namespace Drones
 {
     internal static class Program
@@ -14,6 +16,7 @@ namespace Drones
 
             // Démarrage
             Application.Run(new AirSpace(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT - (AirSpace.HEIGHT / 4), "Joe")));
+
         }
     }
 }

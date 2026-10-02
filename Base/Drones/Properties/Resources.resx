@@ -118,6 +118,69 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="EnnemiN1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemiN1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemiN2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemiN2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemiN3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemiN3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemiN4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemiN4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemiN5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemiN5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemiN6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemiN6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnnemisBullet9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisBullet9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="guitariste" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\guitariste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

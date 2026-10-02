@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,43 +9,57 @@ namespace P_320_POO_CALI.Model
 {
     internal class Ennemis
     {
+        Image rdmEnnemis;
 
-        /*
-          
-        public int charge;                            // La charge actuelle de la batterie
-        public string name;                           // Un nom
+        Random indexEnnemis = new Random();
+        // Image Ennemis
+        Image[] tabOfEnnemis =
+        {
+            Properties.Resources.EnnemiN1,
+            Properties.Resources.EnnemiN2,
+            Properties.Resources.EnnemiN3,
+            Properties.Resources.EnnemiN4,
+            Properties.Resources.EnnemiN5,
+            Properties.Resources.EnnemiN6
+        };
+
+        Image[] tabOfBullets =
+        {
+            Properties.Resources.EnnemiN1,
+            Properties.Resources.EnnemiN2,
+            Properties.Resources.EnnemiN3,
+            Properties.Resources.EnnemiN4,
+            Properties.Resources.EnnemiN5,
+            Properties.Resources.EnnemiN6
+        };
+
         public int x;                                 // Position en X depuis la gauche de l'espace aérien
         public int y;                                 // Position en Y depuis le haut de l'espace aérien
-        public int speed_x;                           // Déplacement horizontal
         public int speed_y;
         // Déplacement vertical
-        private Random _alea = new Random();
+        private Random _rdm = new Random();
 
         // Constructeur
-        public Drone(int x, int y, string name)
+        public Ennemis(int x, int y)
         {
-            Random alea = new Random();
             this.x = x;
             this.y = y;
-            this.name = name;
-            charge = alea.Next(1000); // La charge initiale de la batterie est choisie aléatoirement
-            ChangeDirection();
+            rdmEnnemis = tabOfEnnemis[indexEnnemis.Next(tabOfEnnemis.Length)];
         }
 
         // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
         // que 'interval' millisecondes se sont écoulées
         public void Update(int interval)
         {
-            x += speed_x;   
+             
             y += speed_y;
-            charge--;
         }
 
         // Choisit une nouvelle vitesse aléatoirement
-        public void ChangeDirection()
+        public void EnnemisRandom()
         {
-            speed_x = _alea.Next(-3, 4);
-            speed_y = _alea.Next(-3, 4);
+
+
         }
 
         /// //////////////////////////////////////////////////////////////////////////////
@@ -60,16 +75,11 @@ namespace P_320_POO_CALI.Model
         // De manière graphique
         public void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawImage(Resources.drone, x, y, 50, 50);
-            drawingSpace.Graphics.DrawString($"{this}", TextHelpers.drawFont, TextHelpers.writingBrush, x + 5, y - 25);
+                drawingSpace.Graphics.DrawImage(rdmEnnemis, x, y, 45, 100);
+            
         }
 
-        // De manière textuelle
-        public override string ToString()
-        {
-            return $"{name} ({((int)((double)charge / 1000 * 100)).ToString()}%)";
-        }
 
-        */
+        
     }
 }

@@ -1,3 +1,4 @@
+using P_320_POO_CALI.Model;
 using P_320_POO_CALI.Properties;
 using System.Net;
 namespace Drones
@@ -10,8 +11,9 @@ namespace Drones
     {
         public static readonly int WIDTH = 1200;        // Dimensions of the airspace
         public static readonly int HEIGHT = 600;
+        private List<Ennemis> foule = new List<Ennemis>();
 
-       
+
 
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
@@ -20,6 +22,7 @@ namespace Drones
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
+        private BufferedGraphics drawingSpace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
         public AirSpace(Drone player)
@@ -38,17 +41,27 @@ namespace Drones
             this.KeyPreview = true;
 
             this.KeyDown += AirSpace_KeyDown;
+
+            foule.Add(new Ennemis(50, 50));
+            foule.Add(new Ennemis(150, 50));
+            foule.Add(new Ennemis(250, 50));
         }
 
         // Affichage de la situation actuelle
         private void Render()
         {
             // Affichage du fond d'écran
-            airspace.Graphics.DrawImage(P_320_POO_CALI.Properties.Resources.salle_concert,0, 0, WIDTH, HEIGHT);
+            airspace.Graphics.DrawImage(P_320_POO_CALI.Properties.Resources.salle_concert, 0, 0, WIDTH, HEIGHT);
 
             _player.Render(airspace);
 
+            foreach (Ennemis ennemi in foule)
+            {
+                ennemi.Render(airspace);
+            }
+
             airspace.Render();
+
         }
 
         // Calcul du nouvel état après que 'interval' millisecondes se sont écoulées
@@ -68,18 +81,18 @@ namespace Drones
         {
             switch (e.KeyCode)
             {
-                    // dans le cas ou je clique fleche droite
+                // dans le cas ou je clique fleche droite
                 case Keys.Right:
                     _player.keyRightMotion();
                     break;
 
-                    // dans le cas ou je clique fleche gauche
+                // dans le cas ou je clique fleche gauche
                 case Keys.Left:
                     _player.keyLeftMotion();
                     break;
-                    
 
-        }
+
+            }
         }
     }
 }
