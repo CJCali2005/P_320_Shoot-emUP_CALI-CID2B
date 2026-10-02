@@ -6,14 +6,13 @@ namespace Drones
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
     public class Drone
     {
-        public int charge;                            // La charge actuelle de la batterie
         public string name;                           // Un nom
         public int x;                                 // Position en X depuis la gauche de l'espace aérien
         public int y;                                 // Position en Y depuis le haut de l'espace aérien
-        public int speed_x;                           // Déplacement horizontal
-        
+        public int speed_x = 10;                           // Déplacement horizontal
+
         private Random _alea = new Random();
-        
+
 
 
         // Constructeur
@@ -23,25 +22,39 @@ namespace Drones
             this.x = x;
             this.y = y;
             this.name = name;
-            charge = alea.Next(1000); // La charge initiale de la batterie est choisie aléatoirement
-            ChangeDirection();
         }
 
         // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
         // que 'interval' millisecondes se sont écoulées
         public void Update(int interval)
         {
-            
-            // on ajoute la valeur de speed x à notre position actuelle
-            x += speed_x;  
-            charge--;
+
         }
 
         // Choisit une nouvelle vitesse aléatoirement
-        public void ChangeDirection()
+        public void keyLeftMotion()
+        {
+            if (x - speed_x <= 0)
+            {
+                x -= 0;
+            }
+            else
+            {
+                x -= speed_x;
+            }
+        }
+
+        public void keyRightMotion()
         {
 
-            speed_x = _alea.Next(-3, 4);
+            // - 60 est la largeur de mon joueur
+            if (x + speed_x >= AirSpace.WIDTH - 60)
+            {
+
+                x += 0;
+
+            }
+            else { x += speed_x; }
         }
 
         /// //////////////////////////////////////////////////////////////////////////////
@@ -58,15 +71,11 @@ namespace Drones
         public void Render(BufferedGraphics drawingSpace)
         {
 
-            drawingSpace.Graphics.DrawImage(Resources.guitariste, x, y , 60, 105);
-            drawingSpace.Graphics.DrawString($"{this}", TextHelpers.drawFont, TextHelpers.writingBrush, x + 5, y - 25);
+            drawingSpace.Graphics.DrawImage(Resources.guitariste, x, y, 60, 105);
         }
 
-        // De manière textuelle
-        public override string ToString()
-        {
-            return $"{name} ({((int)((double)charge / 1000 * 100)).ToString()}%)";
-        }
+
+
 
 
     }

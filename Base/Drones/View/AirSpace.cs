@@ -68,18 +68,14 @@ namespace Drones
         {
             switch (e.KeyCode)
             {
-                case Keys.Space:
-                    _player.ChangeDirection();
-                    break;
-
                     // dans le cas ou je clique fleche droite
                 case Keys.Right:
-                    _player.speed_x = 10;
+                    _player.keyRightMotion();
                     break;
 
                     // dans le cas ou je clique fleche gauche
                 case Keys.Left:
-                    _player.speed_x = -10;
+                    _player.keyLeftMotion();
                     break;
                     
 
