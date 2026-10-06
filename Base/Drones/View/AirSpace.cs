@@ -12,7 +12,8 @@ namespace Drones
         public static readonly int WIDTH = 1200;        // Dimensions of the airspace
         public static readonly int HEIGHT = 600;
         private List<Ennemis> foule = new List<Ennemis>();
-
+        Random rdmApparitionEnnemis = new Random();
+        public int intervalEnnemis = 0;
 
 
 
@@ -37,14 +38,13 @@ namespace Drones
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this._player = player;
 
+
             // pour form accepte les touche du clavier
             this.KeyPreview = true;
 
             this.KeyDown += AirSpace_KeyDown;
 
-            foule.Add(new Ennemis(50, 50));
-            foule.Add(new Ennemis(150, 50));
-            foule.Add(new Ennemis(250, 50));
+
         }
 
         // Affichage de la situation actuelle
@@ -55,10 +55,10 @@ namespace Drones
 
             _player.Render(airspace);
 
-            foreach (Ennemis ennemi in foule)
+            foreach(Ennemis ennemi in foule)
             {
                 ennemi.Render(airspace);
-            }
+            }  
 
             airspace.Render();
 
@@ -68,6 +68,27 @@ namespace Drones
         private void Update(int interval)
         {
             _player.Update(interval);
+
+            // ajout de la valeur de interval "timer" dans intervalennemis qui est la valeur qui va enclencher la condition lorsque elle atteint 1000 (1seconde) 
+            intervalEnnemis += interval;
+            if (intervalEnnemis >= 2000)
+            {
+                foule.Add(new Ennemis(rdmApparitionEnnemis.Next(0, WIDTH), -50));
+
+                intervalEnnemis = 0;
+            }
+
+            
+
+            foreach (Ennemis i in foule)
+            {
+                i.Update(interval);
+
+                if( i.y == HEIGHT + 50)
+                {
+                    foule.Remove(i);
+                }
+            }
         }
 
         // Méthode appelée à chaque frame

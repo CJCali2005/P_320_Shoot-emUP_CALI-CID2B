@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Drones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
@@ -35,8 +36,7 @@ namespace P_320_POO_CALI.Model
 
         public int x;                                 // Position en X depuis la gauche de l'espace aérien
         public int y;                                 // Position en Y depuis le haut de l'espace aérien
-        public int speed_y;
-        // Déplacement vertical
+        public int speed_y = 5;
         private Random _rdm = new Random();
 
         // Constructeur
@@ -51,8 +51,9 @@ namespace P_320_POO_CALI.Model
         // que 'interval' millisecondes se sont écoulées
         public void Update(int interval)
         {
-             
+            
             y += speed_y;
+                        
         }
 
         // Choisit une nouvelle vitesse aléatoirement
