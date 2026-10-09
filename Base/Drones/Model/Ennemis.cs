@@ -56,7 +56,6 @@ namespace P_320_POO_CALI.Model
             // chaques interval ce qui donne a la fin 100 px par seconde car 2 * 50 = 100
 
             y += speed_y * interval / 1000;
-                        
         }
 
         // Choisit une nouvelle vitesse aléatoirement
@@ -80,7 +79,6 @@ namespace P_320_POO_CALI.Model
         public void Render(BufferedGraphics drawingSpace)
         {
                 drawingSpace.Graphics.DrawImage(rdmEnnemis,(int)x,(int)y,45,100);
-            
         }
 
 

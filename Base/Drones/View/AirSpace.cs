@@ -81,15 +81,15 @@ namespace Drones
                 intervalEnnemis = 0;
             }
 
-            
 
-            foreach (Ennemis i in foule)
+            // à chaque fois que un ennemi sors de l'écran contre le bas, il est supprimé de la liste
+            for (int i = foule.Count - 1; i >= 0; i--)
             {
-                i.Update(interval);
+                foule[i].Update(interval);
 
-                if( i.y == HEIGHT + 50)
+                if (foule[i].y >= HEIGHT + 50)
                 {
-                    foule.Remove(i);
+                    foule.RemoveAt(i);
                 }
             }
         }
