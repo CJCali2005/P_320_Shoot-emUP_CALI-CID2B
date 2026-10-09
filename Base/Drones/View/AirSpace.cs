@@ -58,10 +58,10 @@ namespace Drones
 
             _player.Render(airspace);
 
-            foreach(Ennemis ennemi in foule)
+            foreach (Ennemis ennemi in foule)
             {
                 ennemi.Render(airspace);
-            }  
+            }
 
             airspace.Render();
 
@@ -114,7 +114,9 @@ namespace Drones
                 case Keys.Left:
                     _player.keyLeftMotion();
                     break;
-
+                case Keys.Space:
+                    // endroit ou je vais mettre l'execution de la methode qui s'occupera des munitions du joueur ( Accords )
+                    break;
 
             }
         }
