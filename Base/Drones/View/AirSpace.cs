@@ -31,6 +31,9 @@ namespace Drones
             InitializeComponent();
             ClientSize = new Size(WIDTH, HEIGHT);
 
+            // une nouvelle frame 5x plus rapide qu'avant car avant c'était 100 par defaut et j'ai fais pour la fluidité des déplacement
+            ticker.Interval = 20;
+
             // Gets a reference to the current BufferedGraphicsContext
             currentContext = BufferedGraphicsManager.Current;
             // Creates a BufferedGraphics instance associated with this form, and with

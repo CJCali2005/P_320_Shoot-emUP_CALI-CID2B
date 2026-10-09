@@ -36,7 +36,7 @@ namespace P_320_POO_CALI.Model
 
         public int x;                                 // Position en X depuis la gauche de l'espace aérien
         public int y;                                 // Position en Y depuis le haut de l'espace aérien
-        public int speed_y = 5;
+        public int speed_y = 100;
         private Random _rdm = new Random();
 
         // Constructeur
@@ -51,8 +51,11 @@ namespace P_320_POO_CALI.Model
         // que 'interval' millisecondes se sont écoulées
         public void Update(int interval)
         {
-            
-            y += speed_y;
+            // on a ce calcul qui est effectué 50 fois par seconde car interval 20ms --> 1000(1 seconde) =  50x donc on veut que speed y avance de 100 par secondes
+            // mais pour ça on divise par le nombre de frames ces 100px pour que le mouvement sois réparti en 50 fois sur la seconde au lieu d'un mouvement sec chaque seconde donc 2
+            // chaques interval ce qui donne a la fin 100 px par seconde car 2 * 50 = 100
+
+            y += speed_y * interval / 1000;
                         
         }
 
@@ -76,7 +79,7 @@ namespace P_320_POO_CALI.Model
         // De manière graphique
         public void Render(BufferedGraphics drawingSpace)
         {
-                drawingSpace.Graphics.DrawImage(rdmEnnemis, x, y, 45, 100);
+                drawingSpace.Graphics.DrawImage(rdmEnnemis,(int)x,(int)y,45,100);
             
         }
 

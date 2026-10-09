@@ -31,7 +31,6 @@ namespace Drones
 
         }
 
-        // Choisit une nouvelle vitesse aléatoirement
         public void keyLeftMotion()
         {
             if (x - speed_x <= 0)
@@ -40,7 +39,7 @@ namespace Drones
             }
             else
             {
-                x -= speed_x;
+                x -= speed_x ;
             }
         }
 
