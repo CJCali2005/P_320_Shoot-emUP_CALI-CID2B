@@ -4,7 +4,7 @@ using P_320_POO_CALI.Properties;
 namespace Drones
 {
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
-    public class Drone
+    public class Guitariste
     {
         public string name;                           // Un nom
         public int x;                                 // Position en X depuis la gauche de l'espace aérien
@@ -16,7 +16,7 @@ namespace Drones
 
 
         // Constructeur
-        public Drone(int x, int y, string name)
+        public Guitariste(int x, int y, string name)
         {
             Random alea = new Random();
             this.x = x;
@@ -26,10 +26,10 @@ namespace Drones
 
         // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
         // que 'interval' millisecondes se sont écoulées
-        public void Update(int interval)
+        /*Apublic void Update(int interval)
         {
 
-        }
+        }*/
 
         public void keyLeftMotion()
         {

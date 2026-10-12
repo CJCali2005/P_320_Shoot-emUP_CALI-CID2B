@@ -19,14 +19,14 @@ namespace Drones
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
         // représente le lien avec la class dronne
-        private Drone _player;
+        private Guitariste _player;
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
         private BufferedGraphics drawingSpace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public AirSpace(Drone player)
+        public AirSpace(Guitariste player)
         {
             InitializeComponent();
             ClientSize = new Size(WIDTH, HEIGHT);
