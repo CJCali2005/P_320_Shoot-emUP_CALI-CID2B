@@ -70,7 +70,6 @@ namespace Drones
         // Calcul du nouvel état après que 'interval' millisecondes se sont écoulées
         private void Update(int interval)
         {
-            _player.Update(interval);
 
             // ajout de la valeur de interval "timer" dans intervalennemis qui est la valeur qui va enclencher la condition lorsque elle atteint 1000 (1seconde) 
             intervalEnnemis += interval;

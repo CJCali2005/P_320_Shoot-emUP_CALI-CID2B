@@ -58,12 +58,7 @@ namespace P_320_POO_CALI.Model
             y += speed_y * interval / 1000;
         }
 
-        // Choisit une nouvelle vitesse aléatoirement
-        public void EnnemisRandom()
-        {
-
-
-        }
+        
 
         /// //////////////////////////////////////////////////////////////////////////////
         //  
@@ -73,7 +68,6 @@ namespace P_320_POO_CALI.Model
         //  
         /// //////////////////////////////////////////////////////////////////////////////
 
-        private Pen droneBrush = new Pen(new SolidBrush(Color.Purple), 3);
 
         // De manière graphique
         public void Render(BufferedGraphics drawingSpace)
