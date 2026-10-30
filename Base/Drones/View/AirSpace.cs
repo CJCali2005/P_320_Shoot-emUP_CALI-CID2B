@@ -15,6 +15,11 @@ namespace Drones
         Random rdmApparitionEnnemis = new Random();
         public int intervalEnnemis = 0;
 
+        private int indicePosX = 10;
+
+        private List<Obstacle> barrieres = new List<Obstacle>();
+        private List<bulletPlayer> balles = new List<bulletPlayer>();
+
 
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
@@ -47,6 +52,13 @@ namespace Drones
 
             this.KeyDown += AirSpace_KeyDown;
 
+            for ( int i = 0; i < 11; i++)
+            {
+                barrieres.Add(new Obstacle(indicePosX, HEIGHT - 210));
+                indicePosX += 108;
+            }
+
+
 
         }
 
@@ -63,6 +75,16 @@ namespace Drones
                 ennemi.Render(airspace);
             }
 
+            foreach (bulletPlayer balle in balles)
+            {
+                balle.Render(airspace);
+            }
+
+            foreach (Obstacle barriere in barrieres)
+            {
+                barriere.Render(airspace);
+            }
+            
             airspace.Render();
 
         }
@@ -91,6 +113,16 @@ namespace Drones
                     foule.RemoveAt(i);
                 }
             }
+
+            foreach (bulletPlayer balle in balles)
+            {
+                balle.Update(interval);
+
+                if (balle.posY <= HEIGHT - HEIGHT - 50)
+                {
+                    balles.RemoveAt(balles.Count - 1);
+                }
+            } 
         }
 
         // Méthode appelée à chaque frame
@@ -115,6 +147,8 @@ namespace Drones
                     break;
                 case Keys.Space:
                     // endroit ou je vais mettre l'execution de la methode qui s'occupera des munitions du joueur ( Accords )
+                    balles.Add(new bulletPlayer(_player.x, _player.y));
+                    balles[balles.Count - 1].Render(airspace);
                     break;
 
             }
