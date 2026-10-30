@@ -17,8 +17,9 @@ namespace Drones
 
         private int indicePosX = 10;
 
-        private List<Obstacle> barrieres = new List<Obstacle>();
+     
         private List<bulletPlayer> balles = new List<bulletPlayer>();
+        private List<Obstacle> barrieres = new List<Obstacle>();
 
 
 
@@ -52,13 +53,12 @@ namespace Drones
 
             this.KeyDown += AirSpace_KeyDown;
 
-            for ( int i = 0; i < 11; i++)
+
+            for (int i = 0; i < 11; i++)
             {
                 barrieres.Add(new Obstacle(indicePosX, HEIGHT - 210));
                 indicePosX += 108;
             }
-
-
 
         }
 
@@ -84,7 +84,7 @@ namespace Drones
             {
                 barriere.Render(airspace);
             }
-            
+
             airspace.Render();
 
         }
