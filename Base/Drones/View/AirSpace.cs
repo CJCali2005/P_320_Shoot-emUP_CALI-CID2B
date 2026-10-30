@@ -207,6 +207,30 @@ namespace Drones
                     ballesEnnemis.RemoveAt(i);
                 }
             }
+
+            // on compare chaque balle du joueur avec chaque balle ennemie
+            for (int i = balles.Count - 1; i >= 0; i--)
+            {
+                for (int j = ballesEnnemis.Count - 1; j >= 0; j--)
+                {
+                    bool collision =
+                        balles[i].posX < ballesEnnemis[j].posX + ballesEnnemis[j].width &&
+                        balles[i].posX + balles[i].width > ballesEnnemis[j].posX &&
+                        balles[i].posY < ballesEnnemis[j].posY + ballesEnnemis[j].height &&
+                        balles[i].posY + balles[i].height > ballesEnnemis[j].posY;
+
+                    if (collision)
+                    {
+                        // suppression de la balle du joueur dans la list 
+                        balles.RemoveAt(i);
+
+                        // suppression aussi dans la liste
+                        ballesEnnemis.RemoveAt(j);
+
+                        break;
+                    }
+                }
+            }
         }
 
         // Méthode appelée à chaque frame
