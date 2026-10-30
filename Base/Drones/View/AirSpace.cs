@@ -94,6 +94,14 @@ namespace Drones
         // Calcul du nouvel état après que 'interval' millisecondes se sont écoulées
         private void Update(int interval)
         {
+            // Pour supprimer les barrières dés qu'elles n'ont plus de vie
+            for (int j = barrieres.Count - 1; j >= 0; j--)
+            {
+                if (barrieres[j].LifeObstacle <= 0)
+                {
+                    barrieres.RemoveAt(j);
+                }
+            }
 
             // ajout de la valeur de interval "timer" dans intervalennemis qui est la valeur qui va enclencher la condition lorsque elle atteint 1000 (1seconde) 
             intervalEnnemis += interval;
@@ -122,10 +130,32 @@ namespace Drones
 
                 foreach(Obstacle grillage in barrieres)
                 {
-                    if ((foule[i].y <= grillage._posY && foule[i].y + foule[i].height >= grillage._posY) &&( (foule[i].x <= grillage._posX && foule[i].x + foule[i].width >= grillage._posX) || (foule[i].x >= grillage._posX && (foule[i].x + foule[i].width) <= (grillage._posX + grillage.width)) || (foule[i].x >= grillage._posX && foule[i].x + foule[i].width >= (grillage._posX + grillage.width))))
+                    /*if ((foule[i].y <= grillage._posY && foule[i].y + foule[i].height >= grillage._posY) &&( (foule[i].x <= grillage._posX && foule[i].x + foule[i].width >= grillage._posX) || (foule[i].x >= grillage._posX && (foule[i].x + foule[i].width) <= (grillage._posX + grillage.width)) || (foule[i].x >= grillage._posX && foule[i].x + foule[i].width >= (grillage._posX + grillage.width))))
                     {
                         foule.RemoveAt(i);
+                        grillage.Degats();
+                        break;
+                    }*/
+                }
+                foreach (Obstacle grillage in barrieres)
+                {
+                    bool collision =
+                                    foule[i].x < grillage._posX + grillage.width &&
+                                    foule[i].x + foule[i].width > grillage._posX &&
+                                    foule[i].y < grillage._posY + grillage.height &&
+                                    foule[i].y + foule[i].height > grillage._posY;
+
+                    if (collision)
+                    {
+                        Console.WriteLine(
+                            $"BARRIERE X={grillage._posX} PV={grillage.LifeObstacle}"
+                        );
+
+                        foule.RemoveAt(i);
+                        grillage.Degats();
+                        break;
                     }
+
                 }
             }
 

@@ -17,6 +17,11 @@ namespace P_320_POO_CALI.Model
 
         private int lifeObstacle;
 
+        public int LifeObstacle
+        {
+            get { return lifeObstacle; }
+        }
+
         Image[] TabOfGrillage =
         {
             Properties.Resources.grillage_bon_etat,
@@ -46,7 +51,7 @@ namespace P_320_POO_CALI.Model
             }
             else if (lifeObstacle == 50)
             {
-                drawingSpace.Graphics.DrawImage(TabOfGrillage[1], (int)_posX, (int)_posY, 45, 100);
+                drawingSpace.Graphics.DrawImage(TabOfGrillage[1], (int)_posX, (int)_posY, width, height);
             }
         }
     }

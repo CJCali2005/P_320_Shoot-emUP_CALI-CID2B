@@ -27,15 +27,7 @@ namespace P_320_POO_CALI.Model
             Properties.Resources.EnnemiN6
         };
 
-        Image[] tabOfBullets =
-        {
-            Properties.Resources.EnnemiN1,
-            Properties.Resources.EnnemiN2,
-            Properties.Resources.EnnemiN3,
-            Properties.Resources.EnnemiN4,
-            Properties.Resources.EnnemiN5,
-            Properties.Resources.EnnemiN6
-        };
+        
 
         public int x;                                 // Position en X depuis la gauche de l'espace aérien
         public int y;                                 // Position en Y depuis le haut de l'espace aérien
