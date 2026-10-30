@@ -21,6 +21,9 @@ namespace Drones
         private int ralentisseurTir = 0;
 
         private List<bulletPlayer> balles = new List<bulletPlayer>();
+        private List<bulletEnnemis> ballesEnnemis = new List<bulletEnnemis>();
+        private Random rdmTirEnnemi = new Random();
+
         private List<Obstacle> barrieres = new List<Obstacle>();
 
 
@@ -81,6 +84,10 @@ namespace Drones
             {
                 balle.Render(airspace);
             }
+            foreach (bulletEnnemis balle in ballesEnnemis)
+            {
+                balle.Render(airspace);
+            }
 
             foreach (Obstacle barriere in barrieres)
             {
@@ -123,12 +130,19 @@ namespace Drones
             {
                 foule[i].Update(interval);
 
+                if (rdmTirEnnemi.Next(100) == 0)
+                {
+                    ballesEnnemis.Add(
+                        new bulletEnnemis(foule[i].x, foule[i].y)
+                    );
+                }
+
                 if (foule[i].y >= HEIGHT + 50)
                 {
                     foule.RemoveAt(i);
                 }
 
-                foreach(Obstacle grillage in barrieres)
+                foreach (Obstacle grillage in barrieres)
                 {
                     /*if ((foule[i].y <= grillage._posY && foule[i].y + foule[i].height >= grillage._posY) &&( (foule[i].x <= grillage._posX && foule[i].x + foule[i].width >= grillage._posX) || (foule[i].x >= grillage._posX && (foule[i].x + foule[i].width) <= (grillage._posX + grillage.width)) || (foule[i].x >= grillage._posX && foule[i].x + foule[i].width >= (grillage._posX + grillage.width))))
                     {
@@ -137,23 +151,7 @@ namespace Drones
                         break;
                     }*/
                 }
-                foreach (Obstacle grillage in barrieres)
-                {
-                    bool collision =
-                                    foule[i].x < grillage._posX + grillage.width &&
-                                    foule[i].x + foule[i].width > grillage._posX &&
-                                    foule[i].y < grillage._posY + grillage.height &&
-                                    foule[i].y + foule[i].height > grillage._posY;
-
-                    if (collision)
-                    {
-
-                        foule.RemoveAt(i);
-                        grillage.Degats();
-                        break;
-                    }
-
-                }
+                
             }
 
             // transformé en for au lieu d'un foreach car avant j'avais une erreur.
@@ -167,7 +165,17 @@ namespace Drones
                 }
             }
 
-            
+            for (int i = ballesEnnemis.Count - 1; i >= 0; i--)
+            {
+                ballesEnnemis[i].Update(interval);
+
+               
+
+                if (ballesEnnemis[i].posY >= HEIGHT + 50)
+                {
+                    ballesEnnemis.RemoveAt(i);
+                }
+            }
         }
 
         // Méthode appelée à chaque frame
