@@ -17,7 +17,9 @@ namespace Drones
 
         private int indicePosX = 10;
 
-     
+        // j'ai créé cette variable pour ralentir la fréquence de tir
+        private int ralentisseurTir = 0;
+
         private List<bulletPlayer> balles = new List<bulletPlayer>();
         private List<Obstacle> barrieres = new List<Obstacle>();
 
@@ -102,6 +104,11 @@ namespace Drones
                 intervalEnnemis = 0;
             }
 
+            if (ralentisseurTir > 0)
+            {
+                ralentisseurTir -= interval;
+            }
+
 
             // à chaque fois que un ennemi sors de l'écran contre le bas, il est supprimé de la liste
             for (int i = foule.Count - 1; i >= 0; i--)
@@ -114,15 +121,16 @@ namespace Drones
                 }
             }
 
-            foreach (bulletPlayer balle in balles)
+            // transformé en for au lieu d'un foreach car avant j'avais une erreur.
+            for (int i = balles.Count - 1; i >= 0; i--)
             {
-                balle.Update(interval);
+                balles[i].Update(interval);
 
-                if (balle.posY <= HEIGHT - HEIGHT - 50)
+                if (balles[i].posY <= -50)
                 {
-                    balles.RemoveAt(balles.Count - 1);
+                    balles.RemoveAt(i);
                 }
-            } 
+            }
         }
 
         // Méthode appelée à chaque frame
@@ -146,9 +154,13 @@ namespace Drones
                     _player.keyLeftMotion();
                     break;
                 case Keys.Space:
-                    // endroit ou je vais mettre l'execution de la methode qui s'occupera des munitions du joueur ( Accords )
-                    balles.Add(new bulletPlayer(_player.x, _player.y));
-                    balles[balles.Count - 1].Render(airspace);
+
+                    if (ralentisseurTir <= 0)
+                    {
+                        balles.Add(new bulletPlayer(_player.x, _player.y));
+                        ralentisseurTir = 200; // sa met 200 ms entre chaque tir
+                    }
+
                     break;
 
             }
