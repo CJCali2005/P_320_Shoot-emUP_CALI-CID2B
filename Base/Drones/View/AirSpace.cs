@@ -147,9 +147,6 @@ namespace Drones
 
                     if (collision)
                     {
-                        Console.WriteLine(
-                            $"BARRIERE X={grillage._posX} PV={grillage.LifeObstacle}"
-                        );
 
                         foule.RemoveAt(i);
                         grillage.Degats();
