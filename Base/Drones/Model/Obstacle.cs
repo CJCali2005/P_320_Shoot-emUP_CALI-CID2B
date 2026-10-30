@@ -9,8 +9,11 @@ namespace P_320_POO_CALI.Model
     internal class Obstacle
     {
         public int obstacleState = 0;
-        private int _posX;
-        private int _posY;
+        public int _posX;
+        public int _posY;
+
+        public int width = 100;
+        public int height = 50;
 
         private int lifeObstacle;
 
@@ -39,7 +42,7 @@ namespace P_320_POO_CALI.Model
         {
             if (lifeObstacle == 100)
             {
-                drawingSpace.Graphics.DrawImage(TabOfGrillage[0], (int)_posX, (int)_posY, 100, 50);
+                drawingSpace.Graphics.DrawImage(TabOfGrillage[0], (int)_posX, (int)_posY, width, height);
             }
             else if (lifeObstacle == 50)
             {

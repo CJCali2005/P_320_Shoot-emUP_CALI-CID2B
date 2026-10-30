@@ -119,6 +119,14 @@ namespace Drones
                 {
                     foule.RemoveAt(i);
                 }
+
+                foreach(Obstacle grillage in barrieres)
+                {
+                    if ((foule[i].y <= grillage._posY && foule[i].y + foule[i].height >= grillage._posY) &&( (foule[i].x <= grillage._posX && foule[i].x + foule[i].width >= grillage._posX) || (foule[i].x >= grillage._posX && (foule[i].x + foule[i].width) <= (grillage._posX + grillage.width)) || (foule[i].x >= grillage._posX && foule[i].x + foule[i].width >= (grillage._posX + grillage.width))))
+                    {
+                        foule.RemoveAt(i);
+                    }
+                }
             }
 
             // transformé en for au lieu d'un foreach car avant j'avais une erreur.
@@ -131,6 +139,8 @@ namespace Drones
                     balles.RemoveAt(i);
                 }
             }
+
+            
         }
 
         // Méthode appelée à chaque frame

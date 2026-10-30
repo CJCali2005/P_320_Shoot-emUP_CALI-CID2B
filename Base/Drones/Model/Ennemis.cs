@@ -12,6 +12,9 @@ namespace P_320_POO_CALI.Model
     {
         Image rdmEnnemis;
 
+        public int height = 100;
+        public int width = 45;
+
         Random indexEnnemis = new Random();
         // Image Ennemis
         Image[] tabOfEnnemis =
