@@ -142,16 +142,24 @@ namespace Drones
                     foule.RemoveAt(i);
                 }
 
+                
                 foreach (Obstacle grillage in barrieres)
                 {
-                    /*if ((foule[i].y <= grillage._posY && foule[i].y + foule[i].height >= grillage._posY) &&( (foule[i].x <= grillage._posX && foule[i].x + foule[i].width >= grillage._posX) || (foule[i].x >= grillage._posX && (foule[i].x + foule[i].width) <= (grillage._posX + grillage.width)) || (foule[i].x >= grillage._posX && foule[i].x + foule[i].width >= (grillage._posX + grillage.width))))
+                    bool collision =
+                                    foule[i].x < grillage._posX + grillage.width &&
+                                    foule[i].x + foule[i].width > grillage._posX &&
+                                    foule[i].y < grillage._posY + grillage.height &&
+                                    foule[i].y + foule[i].height > grillage._posY;
+
+                    if (collision)
                     {
+
                         foule.RemoveAt(i);
                         grillage.Degats();
                         break;
-                    }*/
+                    }
+
                 }
-                
             }
 
             // transformé en for au lieu d'un foreach car avant j'avais une erreur.
@@ -169,7 +177,30 @@ namespace Drones
             {
                 ballesEnnemis[i].Update(interval);
 
-               
+                bool balleSupprimee = false;
+
+                foreach (Obstacle grillage in barrieres)
+                {
+                    bool collision =
+                        ballesEnnemis[i].posX < grillage._posX + grillage.width &&
+                        ballesEnnemis[i].posX + ballesEnnemis[i].width > grillage._posX &&
+                        ballesEnnemis[i].posY < grillage._posY + grillage.height &&
+                        ballesEnnemis[i].posY + ballesEnnemis[i].height > grillage._posY;
+
+                    if (collision)
+                    {
+                        grillage.Degats();
+                        ballesEnnemis.RemoveAt(i);
+
+                        balleSupprimee = true;
+                        break;
+                    }
+                }
+
+                if (balleSupprimee)
+                {
+                    continue;
+                }
 
                 if (ballesEnnemis[i].posY >= HEIGHT + 50)
                 {
