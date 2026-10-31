@@ -11,6 +11,10 @@ namespace Drones
     {
         public static readonly int WIDTH = 1200;        // Dimensions of the airspace
         public static readonly int HEIGHT = 600;
+
+        private int _score = 0;
+        private int _nbKill = 0;
+
         private List<Ennemis> foule = new List<Ennemis>();
         Random rdmApparitionEnnemis = new Random();
         public int intervalEnnemis = 0;
@@ -93,6 +97,8 @@ namespace Drones
             {
                 barriere.Render(airspace);
             }
+
+            airspace.Graphics.DrawString("score : " + _score  + "    NB ENNEMIS KILL : " + _nbKill,new Font("Arial", 20), Brushes.Red, WIDTH / 2 - 50 , HEIGHT - 35);
 
             airspace.Render();
 
@@ -227,6 +233,8 @@ namespace Drones
                         // suppression aussi dans la liste
                         ballesEnnemis.RemoveAt(j);
 
+                        _score += 5;
+
                         break;
                     }
                 }
@@ -250,6 +258,9 @@ namespace Drones
 
                         // suppression de l ennemi
                         foule.RemoveAt(j);
+
+                        _score += 10;
+                        _nbKill++;
 
                         break;
                     }
