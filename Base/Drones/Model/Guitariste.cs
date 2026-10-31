@@ -11,6 +11,11 @@ namespace Drones
         public int y;                                 // Position en Y depuis le haut de l'espace aérien
         public int speed_x = 10;                           // Déplacement horizontal
 
+        public int width = 60 ;
+        public int height = 105 ;
+
+        public bool vivant = true;
+
         private Random _alea = new Random();
 
 

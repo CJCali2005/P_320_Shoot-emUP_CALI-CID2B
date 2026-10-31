@@ -77,7 +77,11 @@ namespace Drones
             // Affichage du fond d'écran
             airspace.Graphics.DrawImage(P_320_POO_CALI.Properties.Resources.salle_concert, 0, 0, WIDTH, HEIGHT);
 
-            _player.Render(airspace);
+
+            if (_player.vivant)
+            {
+                _player.Render(airspace);
+            }
 
             foreach (Ennemis ennemi in foule)
             {
@@ -266,6 +270,39 @@ namespace Drones
                     }
                 }
             }
+
+            // collision entre le joueur et les balles ennemies
+            for (int i = ballesEnnemis.Count - 1; i >= 0; i--)
+            {
+                bool collision =
+                    ballesEnnemis[i].posX < _player.x + _player.width &&
+                    ballesEnnemis[i].posX + ballesEnnemis[i].width > _player.x &&
+                    ballesEnnemis[i].posY < _player.y + _player.height &&
+                    ballesEnnemis[i].posY + ballesEnnemis[i].height > _player.y;
+
+                if (collision)
+                {
+                    ballesEnnemis.RemoveAt(i);
+                    break;
+                }
+            }
+
+            // collision entre le joueur et les ennemis
+            for (int i = foule.Count - 1; i >= 0; i--)
+            {
+                bool collision =
+                    foule[i].x < _player.x + _player.width &&
+                    foule[i].x + foule[i].width > _player.x &&
+                    foule[i].y < _player.y + _player.height &&
+                    foule[i].y + foule[i].height > _player.y;
+
+                if (collision)
+                {
+                    foule.RemoveAt(i);
+                    _player.vivant = false;
+                    break;
+                }
+            }
         }
 
         // Méthode appelée à chaque frame
@@ -277,6 +314,12 @@ namespace Drones
 
         private void AirSpace_KeyDown(object sender, KeyEventArgs e)
         {
+            if (!_player.vivant)
+            {
+                return;
+            }
+
+
             switch (e.KeyCode)
             {
                 // dans le cas ou je clique fleche droite

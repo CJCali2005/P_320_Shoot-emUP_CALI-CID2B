@@ -12,6 +12,9 @@ namespace P_320_POO_CALI.Model
         public int posX;
         public int posY;
 
+        public int width = 45 ;
+        public int height = 75 ;
+
         Random indexBullet = new Random();
 
         Image chosenPics;
@@ -47,7 +50,7 @@ namespace P_320_POO_CALI.Model
 
         public void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawImage(chosenPics, (int)posX, (int)posY, 45, 100);
+            drawingSpace.Graphics.DrawImage(chosenPics, (int)posX, (int)posY, 45, 75);
         }
     }
 }
