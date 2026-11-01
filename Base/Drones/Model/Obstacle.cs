@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P_320_POO_CALI.Model
 {
-    internal class Obstacle
+    public class Obstacle
     {
         public int obstacleState = 0;
         public int _posX;
