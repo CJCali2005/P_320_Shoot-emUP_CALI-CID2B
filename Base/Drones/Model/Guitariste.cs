@@ -1,9 +1,9 @@
-﻿using Drones.Helpers;
+﻿using ShootEmUp.Helpers;
 using P_320_POO_CALI.Properties;
 
-namespace Drones
+namespace ShootEmUp
 {
-    // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
+    // Cette classe représente le joueur principal
     public class Guitariste
     {
         public string name;                           // Un nom
@@ -29,12 +29,7 @@ namespace Drones
             this.name = name;
         }
 
-        // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
-        // que 'interval' millisecondes se sont écoulées
-        /*Apublic void Update(int interval)
-        {
-
-        }*/
+        
 
         public void keyLeftMotion()
         {
@@ -52,7 +47,7 @@ namespace Drones
         {
 
             // - 60 est la largeur de mon joueur
-            if (x + speed_x >= AirSpace.WIDTH - 60)
+            if (x + speed_x >= SalleConcert.WIDTH - 60)
             {
 
                 x += 0;
@@ -64,7 +59,7 @@ namespace Drones
         /// //////////////////////////////////////////////////////////////////////////////
         //  
         //  Ce qui suit appartient à la vue, pas au modèle.
-        //  Il aurait été préférable de séparer la déclaration de la classe Drone en deux,
+        //  Il aurait été préférable de séparer la déclaration de la classe Guitariste en deux,
         //  Nous regroupons tout ici pour simplifier
         //  
         /// //////////////////////////////////////////////////////////////////////////////

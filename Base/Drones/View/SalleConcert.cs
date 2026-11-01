@@ -1,13 +1,13 @@
 using P_320_POO_CALI.Model;
 using P_320_POO_CALI.Properties;
+using P_320_POO_CALI.View;
 using System.Net;
-namespace Drones
+namespace ShootEmUp
 {
-    // La classe AirSpace représente le territoire au dessus duquel les drones peuvent voler
-    // Il s'agit d'un formulaire (une fenêtre) qui montre une vue 2D depuis en dessus
-    // Il n'y a donc pas de notion d'altitude qui intervient
+    // Fenêtre principale du jeu
+    // Affichage de la partie en vue de dessus
 
-    public partial class AirSpace : Form
+    public partial class SalleConcert : Form
     {
         public static readonly int WIDTH = 1200;        // Dimensions of the airspace
         public static readonly int HEIGHT = 600;
@@ -32,16 +32,15 @@ namespace Drones
 
 
 
-        // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
-        // représente le lien avec la class dronne
+        // représente le joueur principal
         private Guitariste _player;
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
         private BufferedGraphics drawingSpace;
 
-        // Initialisation de l'espace aérien avec un certain nombre de drones
-        public AirSpace(Guitariste player)
+        // Initialisation de la salle de concert
+        public SalleConcert(Guitariste player)
         {
             InitializeComponent();
             ClientSize = new Size(WIDTH, HEIGHT);
@@ -69,6 +68,12 @@ namespace Drones
                 indicePosX += 108;
             }
 
+            // apparition d'au moins 10 ennemis comme demandé dans le 80%
+            for (int i = 0; i < 11; i++)
+            {
+                foule.Add(new Ennemis(rdmApparitionEnnemis.Next(0, SalleConcert.WIDTH ), - 50));
+            }
+
         }
 
         // Affichage de la situation actuelle
@@ -78,10 +83,7 @@ namespace Drones
             airspace.Graphics.DrawImage(P_320_POO_CALI.Properties.Resources.salle_concert, 0, 0, WIDTH, HEIGHT);
 
 
-            if (_player.vivant)
-            {
-                _player.Render(airspace);
-            }
+            _player.Render(airspace);
 
             foreach (Ennemis ennemi in foule)
             {
@@ -283,6 +285,13 @@ namespace Drones
                 if (collision)
                 {
                     ballesEnnemis.RemoveAt(i);
+
+                    GameOverForm fin = new GameOverForm(_score);
+
+                    Hide();
+                    fin.ShowDialog();
+                    Close();
+
                     break;
                 }
             }
@@ -299,7 +308,13 @@ namespace Drones
                 if (collision)
                 {
                     foule.RemoveAt(i);
-                    _player.vivant = false;
+
+                    GameOverForm fin = new GameOverForm(_score);
+
+                    Hide();
+                    fin.ShowDialog();
+                    Close();
+
                     break;
                 }
             }

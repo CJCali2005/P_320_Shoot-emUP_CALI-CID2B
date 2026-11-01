@@ -1,6 +1,6 @@
-﻿namespace Drones
+﻿namespace ShootEmUp
 {
-    partial class AirSpace
+    partial class SalleConcert
     {
         /// <summary>
         ///  Required designer variable.
@@ -37,14 +37,14 @@
             ticker.Enabled = true;
             ticker.Tick += NewFrame;
             // 
-            // AirSpace
+            // SalleConcert
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(627, 418);
-            Name = "AirSpace";
-            Text = "AirSpace";
+            Name = "SalleConcert";
+            Text = "SalleConcert";
             KeyDown += AirSpace_KeyDown;
             ResumeLayout(false);
         }

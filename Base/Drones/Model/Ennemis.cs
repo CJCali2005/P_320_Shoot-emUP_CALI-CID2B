@@ -1,4 +1,4 @@
-﻿using Drones;
+﻿using ShootEmUp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +58,7 @@ namespace P_320_POO_CALI.Model
         /// //////////////////////////////////////////////////////////////////////////////
         //  
         //  Ce qui suit appartient à la vue, pas au modèle.
-        //  Il aurait été préférable de séparer la déclaration de la classe Drone en deux,
+        //  Il aurait été préférable de séparer la déclaration de la classe ennemis en deux,
         //  Nous regroupons tout ici pour simplifier
         //  
         /// //////////////////////////////////////////////////////////////////////////////

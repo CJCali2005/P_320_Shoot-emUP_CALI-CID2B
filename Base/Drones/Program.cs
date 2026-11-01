@@ -1,6 +1,6 @@
 using P_320_POO_CALI.Model;
 
-namespace Drones
+namespace ShootEmUp
 {
     internal static class Program
     {
@@ -15,7 +15,7 @@ namespace Drones
             ApplicationConfiguration.Initialize();
 
             // Démarrage
-            Application.Run(new AirSpace(new Guitariste(AirSpace.WIDTH / 2, AirSpace.HEIGHT - (AirSpace.HEIGHT / 4), "Joe")));
+            Application.Run(new SalleConcert(new Guitariste(SalleConcert.WIDTH / 2, SalleConcert.HEIGHT - (SalleConcert.HEIGHT / 4), "Joe")));
 
         }
     }
